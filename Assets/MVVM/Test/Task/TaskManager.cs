@@ -30,6 +30,19 @@ public class TaskManager :Singleton<TaskManager>
         }
     }
     public List<TaskBase> AllTaskList => allTaskList;
+
+    private void Update()
+    {
+        ExecuteActiveTask();
+    }
+
+    void ExecuteActiveTask()
+    {
+        if (currTask == null) return;
+        if (currTask.IsActive)
+            currTask.Execute();
+    }
+
     void AddTask(TaskBase taskBase,ref List<TaskBase> taskList)
     {
         if (taskList.Contains(taskBase)) return;
@@ -46,21 +59,23 @@ public class TaskManager :Singleton<TaskManager>
     {
         for (int i = 0; i < allTaskList.Count; i++)
         {
-            allTaskList[i].taskInfo.CurrState = ETaskState.NonTriggered;
+            allTaskList[i].IsTriggered = false;
+            allTaskList[i].IsComplete = false;
+            allTaskList[i].IsActive = false;
         }
     }
     public void InitTaskList()
     {
         for (int i = 0; i < 10; i++)
         {
-            TaskBase task = new HelpPeopleTask();
+            TaskBase task = new FirstTask();
             task.taskInfo.Id = i;
             task.taskInfo.Name = "Name"+i;
             task.taskInfo.IconName = "IconName"+i;
             task.taskInfo.Describe = "Describe" + i;
             task.taskInfo.CurrState = ETaskState.NonTriggered;
             task.taskInfo.TriggerMode = ETaskTriggerMode.Auto;
-            task.relatedTask = new SecondTask();
+            task.Init();
             allTaskList.Add(task);
         }
     }
@@ -86,12 +101,12 @@ public class TaskManager :Singleton<TaskManager>
     {
         foreach (TaskBase item in allTaskList)
         {
-            if (item.taskInfo.CurrState == ETaskState.Triggered)
+            if (item.IsTriggered)
                 AddTask(item, ref currTaskList);
         }
         foreach (TaskBase item in currTaskList)
         {
-            if(item.taskInfo.CurrState==ETaskState.Completed)
+            if(item.IsComplete)
                 AddTask(item, ref completedTaskList);
             else if(item.taskInfo.CurrState == ETaskState.Current)
                 currTask = item;

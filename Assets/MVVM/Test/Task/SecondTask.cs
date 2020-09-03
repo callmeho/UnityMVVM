@@ -5,7 +5,11 @@ using System.Text;
 
 public class SecondTask : TaskBase
 {
-    public override void Work()
+    public override void Execute()
+    {
+        
+    }
+    public override void Init()
     {
         
     }

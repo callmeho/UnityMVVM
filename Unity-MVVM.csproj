@@ -129,8 +129,12 @@
     <Compile Include="Assets\MVVM\Samples\SelectableCollectionView\ButtoModel.cs" />
     <Compile Include="Assets\MVVM\Samples\SelectableCollectionView\ButtonItem.cs" />
     <Compile Include="Assets\MVVM\Samples\SelectableCollectionView\OtherViewModel.cs" />
+    <Compile Include="Assets\MVVM\Test\BinaryToggle.cs" />
+    <Compile Include="Assets\MVVM\Test\EagleEyes.cs" />
+    <Compile Include="Assets\MVVM\Test\Puzzle\PuzzleManager.cs" />
     <Compile Include="Assets\MVVM\Test\Task\ETaskState.cs" />
     <Compile Include="Assets\MVVM\Test\Task\ETaskTriggerMode.cs" />
+    <Compile Include="Assets\MVVM\Test\Task\FirstTask.cs" />
     <Compile Include="Assets\MVVM\Test\Task\HelpPeopleTask.cs" />
     <Compile Include="Assets\MVVM\Test\Task\ITask.cs" />
     <Compile Include="Assets\MVVM\Test\Task\Props.cs" />
@@ -140,6 +144,7 @@
     <Compile Include="Assets\MVVM\Test\Task\TaskManager.cs" />
     <Compile Include="Assets\MVVM\Test\Task\TaskProvider.cs" />
     <Compile Include="Assets\MVVM\Test\Test.cs" />
+    <Compile Include="Assets\MVVM\Test\TestEvent.cs" />
     <Compile Include="Assets\MVVM\Types\EventArgType.cs" />
     <Compile Include="Assets\MVVM\Types\MVVMBase.cs" />
     <Compile Include="Assets\MVVM\Util\ObservableRangeCollection.cs" />
@@ -158,6 +163,7 @@
     <Compile Include="Assets\MVVM\ViewModel\ViewModelBase.cs" />
     <None Include="Assets\MVVM\Test\Task\TaskClassDiagram.cd" />
     <None Include="Assets\MVVM\Unity-MVVM.asmdef" />
+    <None Include="Assets\MVVM\Test\Puzzle\PuzzleClassDiagram.cd" />
     <Reference Include="UnityEngine">
       <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

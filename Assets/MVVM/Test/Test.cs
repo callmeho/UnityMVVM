@@ -15,12 +15,13 @@ public class Test : MonoBehaviour
         if(GUILayout.Button("触发"))
         {
             id = Random.Range(0, 10);
-            TaskManager.Instance.GetTask(id).taskInfo.CurrState = ETaskState.Triggered;
+            TaskManager.Instance.GetTask(id).IsTriggered = true;
             PrintTask();
         }
         if (GUILayout.Button("完成"))
         {
-            TaskManager.Instance.GetTask("Name" + id).taskInfo.CurrState = ETaskState.Completed;
+            TaskManager.Instance.GetTask(id).OnComplete += OnComplete;
+            TaskManager.Instance.GetTask("Name" + id).IsComplete = true;
             PrintTask1();
         }
         if (GUILayout.Button("清空"))
@@ -28,11 +29,16 @@ public class Test : MonoBehaviour
             TaskManager.Instance.ClearTask();
             PrintTask2();
         }
+        if (GUILayout.Button("激活"))
+        {
+            TaskManager.Instance.GetTask(id).IsActive = true;
+            PrintTask2();
+        }
     }
 
     void OnComplete()
     {
-
+        Debug.LogError("完成");
     }
     void PrintTask()
     {

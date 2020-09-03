@@ -5,5 +5,5 @@ using System.Text;
 
 public interface ITask
 {
-    void Work();
+    void Execute();
 }
